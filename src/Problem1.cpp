@@ -43,14 +43,32 @@ Difficulty : Easy
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-
+void preorder(struct node* node, int *sum, int N);
 struct node{
 	int data;
 	struct node *left;
 	struct node *right;
 };
+int get_missing_value(struct node *root, int n){
+	if ((root!=NULL) && n >= 0)
+	{
+		int s = 0;
+		int k = 0;
+		s = (n*(n + 1)) / 2;
+		preorder(root, &k, n);
+		return s - k;
+	}
+	return -1;
+}
+void preorder(struct node* node, int *sum, int N)
+{
+	if (node == NULL)
+		return;
+	if (node->data <=N && node->data>=0)
+	{
+		*sum = *sum + node->data;
+	}
+	preorder(node->left, sum, N);
 
-
-int get_missing_value(struct node *root,int n){
-    return -1;
+	preorder(node->right, sum, N);
 }

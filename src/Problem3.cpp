@@ -63,6 +63,8 @@ Helper Functions are optional to write
 */
 //Helper Functions Start
 int isOperator(char *data){
+	
+
 	return 0;
 }
 int isOperand(char *data){
@@ -70,6 +72,12 @@ int isOperand(char *data){
 }
 int getOperand(char *data){
 	//converts data string to an integer "123" => 123
+	int i=0,num=0;
+	while (data[i] != NULL)
+	{
+		num = num + (data[i] - 30) * 10;
+	}
+
 	return 0;
 }
 //Helper Functions end
